@@ -59,7 +59,72 @@ header nav a {
     padding: 0.5rem;
 }
 
-main {
+#message {
+    display: none;
+    text-align: center;
+    font-size: 1rem;
+    padding: 2rem;
+}
+
+
+/* Estilos para la sección de filtros */
+#filter-section {
+    background-color: white;
+    padding: 2rem;
+    border: none;
+    border: 1px solid darken(hsl(167, 40%, 20%), 10%);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    border-radius: 3px;
+}
+
+/* Estilos para los campos de filtro */
+input[type="text"],
+input[type="number"] {
+    flex-grow: 1;
+    min-width: 200px;
+    font-size: 1rem;
+    padding: 1rem;
+    border: 1px solid darken(hsl(167, 40%, 20%), 10%);
+    border-radius: 3px;
+
+    &:focus, &:hover, &:active {
+        border: 1px solid hsl(167, 40%, 20%);
+    }
+}
+
+/* Estilos para el botón del filtro */
+button {
+    border: none;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: hsl(167, 40%, 39%) 0.3s;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+
+    #appli-filters {
+        background-color: hsl(167, 40%, 20%);
+        color: hsl(167, 40%, 20%);
+    }
+
+    #apply-filters:hover {
+        background-color: darken(hsl(169, 40%, 39%), 10%);
+    }
+
+    #reset-filters {
+        background-color: hsl(169, 40%, 39%);
+        color: hsl(167, 40%, 20%);
+    }
+
+    #reset-filters:hover {
+        background-color: darken(hsl(169, 40%, 39%), 5%);
+    }
+}
+
+.game-list{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

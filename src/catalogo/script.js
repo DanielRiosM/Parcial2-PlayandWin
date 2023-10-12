@@ -2,88 +2,169 @@ const games = [
   {
     title: "The Legend of Zelda: Tears of the Kingdom",
     platform: "Nintendo Switch",
-    image: "./img/The legend of zelda tears of the kingdom.webp",
+    image: "The legend of zelda tears of the kingdom.webp",
     precio: "$50.00",
   },
   {
     title: "The Legend of Zelda: Breath of the Wild",
     platform: "Nintendo Switch",
-    image: "./img/The legend of zelda breath of the wild.webp",
+    image: "The legend of zelda breath of the wild.webp",
     precio: "$80.00",
   },
   {
     title: "The Legend of Zelda: Link's Awakening",
     platform: "Nintendo Switch",
-    image: "./img/The legend of zelda links awakening.jpg",
+    image: "The legend of zelda links awakening.jpg",
     precio: "$60.00",
   },
   {
     title: "God of War Ragnarok",
     platform: "Playstation",
-    image: "./img/God of war ragnarok.webp",
+    image: "God of war ragnarok.webp",
     precio: "$70.00",
   },
   {
     title: "Hollow knight",
     platform: "PC, Playstation, Xbox",
-    image: "./img/hollow knight.webp",
+    image: "hollow knight.webp",
     precio: "$90.00",
   },
   {
     title: "Elden Ring",
     platform: "PC, Playstation, Xbox",
-    image: "./img/Elden ring.webp",
+    image: "Elden ring.webp",
     precio: "$70.00",
   },
   {
     title: "Payday 3",
     platform: "PC, Playstation, Xbox",
-    image: "./img/Payday 3.webp",
+    image: "Payday 3.webp",
     precio: "$70.00",
   },
   {
     title: "Sea of Thieves",
     platform: "PC, Playstation, Xbox",
-    image: "./img/Sea of thieves.webp",
+    image: "Sea of thieves.webp",
     precio: "$90.00",
   },
   {
     title: "Fallout New Vegas",
     platform: "PC, Playstation, Xbox",
-    image: "./img/Fallout new vegas.webp",
+    image: "Fallout new vegas.webp",
     precio: "$70.00",
   },
 ];
 
-const main = document.querySelector("main");
+function displayTable(juegos) {
+  clearGames();
 
-games.forEach((game) => {
-  const gameElement = document.createElement("div");
-  gameElement.classList.add("game");
+  showLoadingMessage();
 
-  const imageElement = document.createElement("img");
-  imageElement.src = game.image;
+  setTimeout(() => {
 
-  const titleElement = document.createElement("h2");
-  titleElement.textContent = game.title;
+    if (juegos.length === 0) {
 
-  const platformElement = document.createElement("p");
-  platformElement.textContent = `Plataforma: ${game.platform}`;
+      showNotFoundMessage();
 
-  const precioElement = document.createElement("h2");
-  precioElement.textContent = game.precio;
+    } else {
 
-  const buyButtonElement = document.createElement("button");
-  buyButtonElement.textContent = "Comprar";
+        hideMessage();
 
-  gameElement.appendChild(imageElement);
-  gameElement.appendChild(titleElement);
-  gameElement.appendChild(platformElement);
-  gameElement.appendChild(precioElement);
-  gameElement.appendChild(buyButtonElement);
+        const gameContainer = document.querySelector(".game-list");
 
-  main.appendChild(gameElement);
-});
+        const imagePath = `./img/`;
+
+        juegos.forEach((juego) => {
+          const divgame = document.createElement("div");
+          divgame.classList.add("lista");
+          
+          divgame.innerHTML = `
+            <div class="game">
+              <img src="${imagePath+juego.image}" />
+              <h2> ${juego.title}</h2>
+              <p> Plataforma: ${juego.platform}</p>
+              <h2> ${juego.precio}</h2>
+              <button>Aplicar filtros</button>
+            </div>
+          `;
+          gameContainer.appendChild(divgame);
+        });
+
+    }
+
+  }, 2000);
+
+}
+
+// Funcion que limpia la tabla
+function clearGames() {
+  const gameBody = document.querySelector('.game-list');
+  gameBody.innerHTML = '';
+}
+
+// Funcion que muestra mensaje de carga
+function showLoadingMessage() {
+  const message = document.querySelector('.message');
+  console.log(message);
+  message.innerHTML = 'Cargando...';
+
+  message.style.display = 'block';
+}
+
+// Funcion que muestra mensaje de que no se encuentraron datos
+function showNotFoundMessage() {
+  const message = document.querySelector('.message');
+
+  message.innerHTML = 'No se encontraron eventos con el filtro proporcionado.';
+
+  message.style.display = 'block';
+}
+
+// Funcion que oculta mensaje
+function hideMessage() {
+  const message = document.querySelector('.message');
+
+  message.style.display = 'none';
+}
+
+//Region del formulario
+function initButtonsHandler() {
+
+  document.getElementById('filter-form').addEventListener('submit', event => {
+    event.preventDefault();
+    applyFilters();
+  });
+
+  document.getElementById('reset-filters').addEventListener('click', () => {
+    document.querySelectorAll('input.filter-field').forEach(input => input.value = '');
+    applyFilters();
+  });
+
+}
+
+function applyFilters() {
+  const filterText = document.getElementById('text').value.toLowerCase();;
+  const filterMinPrice = parseFloat(document.getElementById('price-min').value);
+  const filterMaxPrice = parseFloat(document.getElementById('price-max').value);
+
+  const filteredEvents = filterEvents(games, filterText,  filterMinPrice, filterMaxPrice);
+
+  displayTable(filteredEvents);
+}
+
+// Funcion con la logica para filtrar los eventos.
+function filterEvents(juegos, text, minPrice, maxPrice) {
+
+  return juegos.filter( juego =>
+      (!minPrice || juego.precio >= minPrice) &&
+      (!maxPrice || juego.precio <= maxPrice) &&
+      (!text     || juego.title.toLowerCase().includes(text))
+    );
+}
+
+displayTable(games);
+initButtonsHandler();
+
 
 const openLogin = document.getElementById("open-login");
 
