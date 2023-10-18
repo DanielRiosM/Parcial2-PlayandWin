@@ -1,11 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../assets/img/consola-de-juego.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <title>Desarrollos ISI - Ventas</title>
 </head>
+
 <body>
-    <h1>kgsohdfjksd</h1>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Inicio</a></li>
+                <li><a href="../catalogo/index.html">Catalogo</a></li>
+                <li><a href="../ventas/index.html">Ventas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="fx-row fx-space-between fx-items-center">
+
+            <h1>VENTAS</h1>
+        </div>
+
+        <br>
+
+        <form id="filter-form" class="filter-section">
+
+            <select id="realEstate-filter" class="form-field" placeholder="Modelo de Casa">
+                <!-- LEER DESDE API -->
+            </select>
+
+            <input type="text" id="customer-filter" placeholder="Nombre del Cliente" class="filter-field">
+            <input type="text" id="salesman-filter" placeholder="Nombre del juego" class="filter-field">
+            <input type="date" id="date-filter" placeholder="Precio máximo" class="filter-field">
+
+            <button type="submit" id="apply-filters" class="btn-submit">Aplicar filtros</button>
+            <button type="reset" id="reset-filters" class="btn">Restablecer</button>
+
+        </form>
+
+        <br>
+
+        <div class="table-container">
+
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>No. Venta</th>
+                        <th>Cliente</th>
+                        <th>Juego</th>
+                        <th>Fecha de Venta</th>
+                        <th class="text-right">Precio de Venta</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table-body">
+                    <!-- LLENAREMOS LA TABLA CON DATOS CONSUMIDOS DESDE UNA API -->
+                </tbody>
+            </table>
+
+        </div>
+
+        <div id="message" class="message">
+            <p>No se han realizado ventas.</p>
+        </div>
+
+        <div id="modalBackground" class="modal-background">
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>

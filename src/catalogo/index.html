@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../assets/img/consola-de-juego.ico">
     <title>Catálogo de Videojuegos</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <header>
-      <nav>
-        <ul>
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="#">Catalogo</a></li>
-          <li><a id="open-login" href="#">Ventas</a></li>
-        </ul>
-      </nav>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="#">Catalogo</a></li>
+                <li><a id="open-login" href="#">Ventas</a></li>
+            </ul>
+        </nav>
     </header>
     <div id="catalogo-text">
-      <h1>Catálogo de Videojuegos</h1>
+        <h1>Catálogo de Videojuegos</h1>
     </div>
     <main>
-      <form id="filter-form">
-        <div id="filter-section">
-          <input type="text" id="text" placeholder="Nombre o descripción" class="filter-field">
-          <input type="number" id="price-min" placeholder="Precio mínimo" class="filter-field">
-          <input type="number" id="price-max" placeholder="Precio máximo" class="filter-field">
-  
-          <button type="submit" id="apply-filters">Aplicar filtros</button>
-          <button type="reset" id="reset-filters">Restablecer</button>
+        <form id="filter-form">
+            <div id="filter-section">
+                <input type="text" id="text" placeholder="Nombre o descripción" class="filter-field">
+                <input type="number" id="price-min" placeholder="Precio mínimo" class="filter-field">
+                <input type="number" id="price-max" placeholder="Precio máximo" class="filter-field">
+
+                <button type="submit" id="apply-filters">Aplicar filtros</button>
+                <button type="reset" id="reset-filters">Restablecer</button>
+            </div>
+        </form>
+        <div class="message">
+            <p>No hay eventos disponibles en este momento.</p>
         </div>
-      </form>
-      <div class="message">
-        <p>No hay eventos disponibles en este momento.</p>
-      </div>
-      
-      <div class="game-list">
-        
-      </div>
+
+        <div class="game-list">
+
+        </div>
     </main>
     <script src="./script.js" defer></script>
-  </body>
+</body>
+
 </html>
