@@ -37,7 +37,6 @@
 
             <input type="text" id="customer-filter" placeholder="Nombre del Cliente" class="filter-field">
             <input type="text" id="salesman-filter" placeholder="Nombre del juego" class="filter-field">
-            <input type="date" id="date-filter" placeholder="Precio máximo" class="filter-field">
 
             <button type="submit" id="apply-filters" class="btn-submit">Aplicar filtros</button>
             <button type="reset" id="reset-filters" class="btn">Restablecer</button>
@@ -52,10 +51,11 @@
                 <thead>
                     <tr>
                         <th>No. Venta</th>
+                        <th>Titulo del juego</th>
+                        <th>Plataforma</th>
                         <th>Cliente</th>
-                        <th>Juego</th>
-                        <th>Fecha de Venta</th>
                         <th class="text-right">Precio de Venta</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="data-table-body">
