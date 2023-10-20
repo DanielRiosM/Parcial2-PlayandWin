@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="../assets/img/consola-de-juego.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <title>Desarrollos ISI - Ventas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani" rel="stylesheet">
+    <title>Play & Win</title>
 </head>
-
 <body>
-
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="../catalogo/index.html">Catalogo</a></li>
-                <li><a href="../ventas/index.html">Ventas</a></li>
-            </ul>
+    
+  <header>
+        <nav id="menu">
+          
+          <ul>
+            
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="../catalogo/index.html">Catalogo de juegos</a></li>
+            <li><a href="../ventas/index.html">Ventas</a></li>
+          </ul>
         </nav>
-    </header>
+  </header>
 
-    <main>
+  <main>
+    
+    <div id="sales">
+      <h1>Ventas</h1>
 
-        <div class="fx-row fx-space-between fx-items-center">
+    </div>
+    <br>
 
-            <h1>VENTAS</h1>
-        </div>
+    <form id="filter-form" class="filter-section">
 
-        <br>
+      <select id="game-filter" class="filter-field" placeholder="Juego en mostrador">
+        <option value="" selected>Todos los juegos</option>
+        <!-- Llenaremos las opciones con datos consumidos desde una api -->
+      </select>
 
-        <form id="filter-form" class="filter-section">
+      <input type="text" id="customer-filter" placeholder="Nombre del Cliente" class="filter-field">
+      <input type="text" id="salesman-filter" placeholder="Nombre del Juego" class="filter-field">
 
+      <button type="submit" id="apply-filters" class="btn-submit">Consultar</button>
+      <button type="reset" id="reset-filters" class="btn">Limpiar</button>
 
-            <input type="text" id="customer-filter" placeholder="Nombre del Cliente" class="filter-field">
-            <input type="text" id="salesman-filter" placeholder="Nombre del juego" class="filter-field">
+    </form>
+    
+    <br>
 
-            <button type="submit" id="apply-filters" class="btn-submit">Aplicar filtros</button>
-            <button type="reset" id="reset-filters" class="btn">Restablecer</button>
+    <div class="table-container">
 
-        </form>
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>No. Venta</th>
+            <th>Cliente</th>
+            <th>Teléfono</th>
+            <th>Juego</th>
+            <th class="text-right">Precio de venta</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="data-table-body">
+          <!-- Llenaremos la tabla con datos consumidos desde una api -->
+        </tbody>
+      </table>
+    </div>
 
-        <br>
+    <div id="message" class="message">
+      <p>No se ha realizado una consulta de ventas.</p>
+    </div>
 
-        <div class="table-container">
+    <div id="modal-background" class="modal-background">
 
-            <table id="data-table">
-                <thead>
-                    <tr>
-                        <th>No. Venta</th>
-                        <th>Titulo del juego</th>
-                        <th>Plataforma</th>
-                        <th>Cliente</th>
-                        <th class="text-right">Precio de Venta</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="data-table-body">
-                    <!-- LLENAREMOS LA TABLA CON DATOS CONSUMIDOS DESDE UNA API -->
-                </tbody>
-            </table>
+    </div>
 
-        </div>
+  </main>
 
-        <div id="message" class="message">
-            <p>No se han realizado ventas.</p>
-        </div>
+  <script src="../scripts/fetch-api.js"></script>
+  <script src="../scripts/utils.js"></script>
+  <script src="script.js"></script>
 
-        <div id="modalBackground" class="modal-background">
-
-        </div>
-    </main>
-
-    <script src="script.js"></script>
-    <script src="../scripts/fetch-api.js"></script>
-    <script src="../scripts/utils.js"></script>
 </body>
-
 </html>
