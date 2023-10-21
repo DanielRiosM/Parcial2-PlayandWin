@@ -94,7 +94,6 @@ function displayTable(juegos) {
               <h2> ${juego.title}</h2>
               <p> Plataforma: ${juego.platform}</p>
               <h2> ${juego.precio}</h2>
-              <button>Aplicar filtros</button>
             </div>
           `;
           gameContainer.appendChild(divgame);
