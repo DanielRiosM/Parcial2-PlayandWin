@@ -2,10 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Parcial 2: Play&Win</title>
 </head>
 <body>
-    <h1>Proyecto Ejemplo</h1>
+    <h1>Parcial 2 Play & Win</h1>
     <h2>Descripción</h2>
     <p>Esta es una pagina con fines educativos para poder utilizar el conocimiento visto en la materia de Front-end de la Universidad de sonora en la que se muestra un home, catalogo y ventas</p>
     <h2>Autores</h2>
@@ -14,18 +13,17 @@
         <li>Daniel Antonio Rios Montoya</li>
     </ul>
     <h2>Requisitos</h2>
-    <p>Para acceder a la opcion de ventas es necesario tener un usuario y contraseña.
-    <strong>Usuario:</strong> janeth.</br>
+    <p>Para acceder a la opcion de ventas es necesario tener un usuario y contraseña.</br>
+    <strong>Usuario:</strong> janeth</br>
     <strong>Contraseña:</strong> front-end-2023</p>
     <h2>Instalación</h2>
     <p>Como comando para poder descargar todo lo que se ocupa del proyecto utilizamos el siguiente comando:</p>
-    ```bash
+
     npm i o npm install
-    ```
-    <h2>Uso</h2>
+
+<h2>Uso</h2>
     <p>Para utilizar este proyecto, simplemente descarga el código fuente y ábrelo en tu navegador web.</p>
     <h2>Estructura del proyecto</h2>
-    ```bash
 
     Parcial2-PlayandWin/      # Carpeta principal del proyecto
     │
@@ -61,6 +59,5 @@
     │
     ├── package.json
 
-    ```
 </body>
 </html>
