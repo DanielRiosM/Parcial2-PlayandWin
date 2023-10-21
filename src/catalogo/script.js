@@ -1,3 +1,13 @@
+class Sale {
+  constructor(id, cliente, telefono, juego, precio) {
+    this.id = id; // Identificador de la venta
+    this.cliente = cliente; // Nombre del cliente
+    this.telefono = telefono; // Teléfono del cliente
+    this.juego = juego; // Vendedor
+    this.precio = precio; // Precio de la venta
+  }
+}
+
 const games = [
   {
     title: "The Legend of Zelda: Tears of the Kingdom",
@@ -96,6 +106,65 @@ function displayTable(juegos) {
 
 }
 
+//modal
+function initAddSaleButtonsHandler() {
+
+  document.getElementById('addSale').addEventListener('click', () => {
+    openAddSaleModal()
+  });
+
+  document.getElementById('modal-background').addEventListener('click', () => {
+    closeAddSaleModal();
+  });
+
+  document.getElementById('sale-form').addEventListener('submit', event => {
+    event.preventDefault();
+    processSubmitSale();
+  });
+
+}
+
+
+function openAddSaleModal() {
+  document.getElementById('sale-form').reset();
+  document.getElementById('modal-background').style.display = 'block';
+  document.getElementById('modal').style.display = 'block';
+}
+
+
+function closeAddSaleModal() {
+  document.getElementById('sale-form').reset();
+  document.getElementById('modal-background').style.display = 'none';
+  document.getElementById('modal').style.display = 'none';
+}
+
+
+function processSubmitSale() {
+  const cliente = document.getElementById('customer-name-field').value;
+  const telefono = document.getElementById('customer-phone-field').value;
+  const juego = document.getElementById('salesman-field').value;
+  const precio = document.getElementById('sale-price-field').value;
+  
+  const saleToSave = new Sale(
+    null,
+    cliente,
+    telefono,
+    juego,
+    parseFloat(precio)
+  );
+
+  createSale(saleToSave);
+}
+
+function createSale(sale) {
+
+  fetchAPI(`${apiURL}/ventas`, 'POST', sale)
+    .then(sale => {
+      closeAddSaleModal();
+      window.alert(`Venta ${sale.id} creada correctamente.`);
+    });
+
+}
 // Funcion que limpia la tabla
 function clearGames() {
   const gameBody = document.querySelector('.game-list');
@@ -164,13 +233,16 @@ function filterEvents(juegos, text, minPrice, maxPrice) {
 
 displayTable(games);
 initButtonsHandler();
+initAddSaleButtonsHandler();
+
+
 
 
 const openLogin = document.getElementById("open-login");
 
 openLogin.addEventListener("click", function () {
-  const username = prompt("Este es un apartado administrativo, por lo que necesita iniciar sesion para poder visualizar el apartado de ventas\n\nPor favor, ingrese su nombre de usuario:");
-  const password = prompt("Este es un apartado administrativo, por lo que necesita iniciar sesion para poder visualizar el apartado de ventas\n\nPor favor, ingrese su contraseña:");
+  const username = prompt("Este es un apartado administrativo, por lo que necesita iniciar sesion para poder visualizar el apartado de ventas\n\nPor favor, ingrese su nombre de usuario (escriba usuario):");
+  const password = prompt("Este es un apartado administrativo, por lo que necesita iniciar sesion para poder visualizar el apartado de ventas\n\nPor favor, ingrese su contraseña (escriba contrasena):");
 
   // Realiza la autenticación y, si es exitosa, puedes realizar acciones, como redirigir al usuario a la página de ventas
   if (username === "usuario" && password === "contrasena") {
