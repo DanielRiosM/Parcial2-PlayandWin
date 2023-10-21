@@ -240,11 +240,11 @@ initAddSaleButtonsHandler();
 const openLogin = document.getElementById("open-login");
 
 openLogin.addEventListener("click", function () {
-  const username = prompt("Este es un apartado administrativo, por lo que necesita iniciar sesion para poder visualizar el apartado de ventas\n\nPor favor, ingrese su nombre de usuario (escriba usuario):");
-  const password = prompt("Este es un apartado administrativo, por lo que necesita iniciar sesion para poder visualizar el apartado de ventas\n\nPor favor, ingrese su contraseña (escriba contrasena):");
+  const username = prompt("Este es un apartado administrativo, por lo que necesita iniciar sesion para poder visualizar el apartado de ventas\n\nPor favor, ingrese su nombre de usuario (escriba janeth):");
+  const password = prompt("Este es un apartado administrativo, por lo que necesita iniciar sesion para poder visualizar el apartado de ventas\n\nPor favor, ingrese su contraseña (escriba front-end-2023):");
 
   // Realiza la autenticación y, si es exitosa, puedes realizar acciones, como redirigir al usuario a la página de ventas
-  if (username === "usuario" && password === "contrasena") {
+  if (username === "janeth" && password === "front-end-2023") {
     alert("Inicio de sesión exitoso. Acceso permitido a Ventas.");
     window.location.href = "../ventas/index.html";
   } else {
